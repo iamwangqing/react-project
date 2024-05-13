@@ -12,12 +12,14 @@ export default defineConfig({
   routes: [
     {
       path: '/',
-      redirect: '/home',
+      redirect: '/basic/button'
     },
     {
-      name: '首页',
-      path: '/home',
-      component: './Home',
+      name: '通用',
+      path: '/basic',
+      routes: [
+        { name: "Button 按钮", path: 'button', component: '@/pages/Button' },
+      ]
     },
     {
       name: '权限演示',
@@ -31,4 +33,8 @@ export default defineConfig({
     },
   ],
   npmClient: 'yarn',
+  verifyCommit: {
+    scope: ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore', 'revert'],
+    allowEmoji: true
+  }
 });
